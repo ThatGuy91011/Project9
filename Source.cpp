@@ -1,18 +1,39 @@
 #include <iostream>
 
 using namespace std;
-
+void BadHacking(int myScore, int highScore);
+void GoodHacking(int& myScore, int& highScore);
 int main()
 {
-	int age = 21;
+	cout << "Video Game High Scores" << endl;
 
-	int& reference = age;
+	int myScore = 231;
+	int highScore = 66666;
 
-	cout << "My age is " << age << endl;
-	cout << "Your age is " << reference << endl;
+	cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
+	GoodHacking(myScore, highScore);
+	cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
+	
+} 
 
-	reference = 18;
+void BadHacking(int myScore, int highScore)
+{
+	int tempFriend = 0;
+	
 
-	cout << "My age is " << age << endl;
-	cout << "Your age is " << reference << endl;
+	tempFriend = highScore;
+	highScore = myScore;
+	myScore = tempFriend;
+	//cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
+}
+
+void GoodHacking(int& myScore, int& highScore)
+{
+	int tempFriend = 0;
+
+
+	tempFriend = myScore;
+	myScore = highScore;
+	highScore = tempFriend;
+	//cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
 }
