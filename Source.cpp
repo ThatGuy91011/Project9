@@ -1,39 +1,46 @@
 #include <iostream>
 
 using namespace std;
-void BadHacking(int myScore, int highScore);
-void GoodHacking(int& myScore, int& highScore);
+void CheckBalanceTerror(int& TerrorBalance);
+void CheckBalanceJoe(int& JoeBalance);
+void HackingBalance(int& JoeBalance, int& TerrorBalance);
 int main()
 {
-	cout << "Video Game High Scores" << endl;
-
-	int myScore = 231;
-	int highScore = 66666;
-
-	cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
-	GoodHacking(myScore, highScore);
-	cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
-	
-} 
-
-void BadHacking(int myScore, int highScore)
+	int TerrorBalance = 0;
+	int JoeBalance = 0;
+	cout << "CIA Balance Switch" << endl;
+	CheckBalanceJoe(JoeBalance);
+	CheckBalanceTerror(TerrorBalance);
+	cout << "Joe's Current Balance: " << JoeBalance << endl;
+	cout << "Terrorist's Current Balance: " << TerrorBalance << endl;
+	cout << "*****START HACK*****" << endl;
+	HackingBalance(JoeBalance, TerrorBalance);
+	cout << "Joe's Current Balance: " << JoeBalance << endl;
+	cout << "Terrorist's Current Balance: " << TerrorBalance << endl;
+}
+void CheckBalanceTerror(int& TerrorBalance)
 {
-	int tempFriend = 0;
-	
+	int fund1 = 300;
+	int fund2 = 700;
+	int fund3 = 100;
 
-	tempFriend = highScore;
-	highScore = myScore;
-	myScore = tempFriend;
-	//cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
+	TerrorBalance = fund1 + fund2 + fund3;
 }
 
-void GoodHacking(int& myScore, int& highScore)
+void CheckBalanceJoe(int& JoeBalance)
+{
+	int fund1 = 100;
+	int fund2 = 50;
+	int fund3 = 20;
+
+	JoeBalance = fund1 + fund2 + fund3;
+}
+void HackingBalance(int& JoeBalance, int& TerrorBalance)
 {
 	int tempFriend = 0;
 
 
-	tempFriend = myScore;
-	myScore = highScore;
-	highScore = tempFriend;
-	//cout << "My score: " << myScore << endl << "High Score: " << highScore << endl;
+	tempFriend = JoeBalance;
+	JoeBalance = TerrorBalance;
+	TerrorBalance = tempFriend;
 }
